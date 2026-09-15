@@ -1,0 +1,1 @@
+Read AGENTS.md first. Prepare a clean handoff for another agent, model, or provider: update `.ai/TASKS.md` and `.ai/HANDOFF.md`, fill the Resume block, and ensure all state the next agent needs is committed, pushed, or explicitly listed. Do not depend on chat history or tool-specific memory.

@@ -1,0 +1,1 @@
+Read AGENTS.md first. Do not modify files. Analyze the requested code and architecture scope, prioritize evidence-based findings, cite relevant files, and propose objective corrections. Avoid cosmetic suggestions without impact.

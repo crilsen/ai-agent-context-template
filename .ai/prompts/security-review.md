@@ -1,0 +1,1 @@
+Read AGENTS.md first. Do not make changes automatically. Perform an evidence-based security review, prioritize findings by severity, and state issue, impact, evidence, and recommendation. Pay special attention to cloud IAM, networking, Terraform/OpenTofu, Kubernetes, secrets, and CI/CD when present.

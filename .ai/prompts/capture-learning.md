@@ -1,0 +1,1 @@
+Read AGENTS.md first. Capture reusable, non-obvious learnings in `.ai/LEARNINGS.md` using its entry format. Do not duplicate rules already in `CONVENTIONS.md`, `DECISIONS.md`, `TOOLS.md`, or `VALIDATION.md`; promote durable learnings to the appropriate file and mark the entry `promoted`. Keep the file a bounded buffer and never use it for task state or chat narration.

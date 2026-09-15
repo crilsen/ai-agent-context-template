@@ -1,0 +1,1 @@
+Read AGENTS.md first. Refresh `.ai/HANDOFF.md` (Resume block), commit or list work in progress, and evaluate remaining budget against `.ai/LIMITS.md`. Warn when usage is approaching the limit, and finalize the handoff before it is exhausted. Never claim an unobserved quota.
