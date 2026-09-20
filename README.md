@@ -126,4 +126,6 @@ Agents may explore the repository, make scoped edits, and run safe validation. D
 
 [MIT](LICENSE).
 
+See [CHANGELOG.md](CHANGELOG.md) for release history.
+
 This project is not affiliated with or endorsed by any of the tools it references; tool names are trademarks of their respective owners.
