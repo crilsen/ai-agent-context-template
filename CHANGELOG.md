@@ -4,6 +4,8 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-20
+
 ### Added
 
 - `Makefile` with `make lint` (markdownlint + shellcheck) and `make test` (script tests).
@@ -31,5 +33,6 @@ All notable changes to this project are documented here. The format is based on 
 - `docs/design.md` describing why the template is built this way.
 - MIT license.
 
-[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/crilsen/ai-agent-relay/releases/tag/v0.1.0
