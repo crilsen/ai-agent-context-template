@@ -7,6 +7,7 @@ All notable changes to this project are documented here. The format is based on 
 ### Added
 
 - `CONTRIBUTING.md` with adapter, script, documentation, and pull-request guidelines.
+- Issue templates (bug, feature, adapter), a pull-request template, and a CI workflow running markdownlint and shellcheck.
 
 ## [0.1.0] - 2026-09-20
 

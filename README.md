@@ -40,19 +40,19 @@ Projects lose working context when a conversation ends, an agent changes, or wor
 cp -R /path/to/ai-agent-context-template/AGENTS.md /path/to/ai-agent-context-template/.ai /path/to/your-project/
 ```
 
-2. Optionally install the adapter for your tool (Codex, OpenCode, and Cursor need none).
+1. Optionally install the adapter for your tool (Codex, OpenCode, and Cursor need none).
 
 ```bash
 sh /path/to/your-project/.ai/adapters/install.sh . claude opencode
 ```
 
-3. Point any agent at `AGENTS.md`. That is all: on first read it detects the empty context, **analyzes the repository automatically**, and fills `.ai/` for you.
+1. Point any agent at `AGENTS.md`. That is all: on first read it detects the empty context, **analyzes the repository automatically**, and fills `.ai/` for you.
 
 ```text
 Read AGENTS.md
 ```
 
-4. Commit the context with the project so it travels across tools and computers.
+1. Commit the context with the project so it travels across tools and computers.
 
 On adoption the agent asks one question: whether you want to add durable context manually or have the agent keep it updated automatically. The initialization also creates `README.md` and `.gitignore` when missing. To run the copy and adapter steps in one command, use `.ai/adapters/bootstrap.sh`.
 
@@ -98,6 +98,8 @@ CHANGELOG.md
 CONTRIBUTING.md
 LICENSE
 README.md
+.github/                     # Issue/PR templates and CI
+.markdownlint-cli2.jsonc     # Markdown lint config used by CI
 docs/
 ├── design.md                # Why this template is built this way
 ├── prd/                     # Product requirement documents (PRDs)

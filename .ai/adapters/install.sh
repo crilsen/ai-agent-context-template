@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -eu
 
-src_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+src_dir=$(dirname -- "$0")
 target=${1:-.}
 if [ "$#" -gt 0 ]; then shift; fi
 

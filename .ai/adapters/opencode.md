@@ -1,2 +1,3 @@
-# OpenCode reads AGENTS.md natively and needs no adapter file.
-# The canonical adapter lives at .ai/adapters/opencode.md.
+<!-- This file is a no-op adapter. -->
+
+OpenCode needs no adapter: it reads `AGENTS.md` at the repository root directly.

@@ -20,14 +20,14 @@ Thanks for helping improve the Agent Context Template. This project is a set of 
 ## Adding or changing an adapter
 
 1. Add the source file under `.ai/adapters/` (for example `mytool.md` with the tool's exact content).
-2. Register it in `.ai/adapters/install.sh` and in the mapping table in `.ai/ADAPTERS.md`.
-3. Test the install into a scratch directory:
+1. Register it in `.ai/adapters/install.sh` and in the mapping table in `.ai/ADAPTERS.md`.
+1. Test the install into a scratch directory:
 
 ```bash
 sh .ai/adapters/install.sh /tmp/actx-adapter-test mytool
 ```
 
-4. If the tool reads `AGENTS.md` natively, document that and skip the adapter.
+1. If the tool reads `AGENTS.md` natively, document that and skip the adapter.
 
 ## Testing scripts
 

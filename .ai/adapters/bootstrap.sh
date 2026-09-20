@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 set -eu
 
-src_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-tmpl_root=$(CDPATH= cd -- "$src_dir/../.." && pwd)
+src_dir=$(dirname -- "$0")
+tmpl_root=$src_dir/../..
 
 usage() {
   printf 'usage: %s <project-dir> [tool...]\n' "$0"
@@ -16,7 +16,7 @@ target=$1
 shift
 
 mkdir -p "$target"
-project_name=$(basename "$(CDPATH= cd -- "$target" && pwd)")
+project_name=$(basename -- "$target")
 
 # Portable context layer
 if [ -e "$target/AGENTS.md" ]; then
