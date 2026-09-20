@@ -24,6 +24,18 @@ Hooks belong to the harness. Wire a hook to call the template's workflows instea
 
 Example hook scripts live in `.ai/adapters/hooks/`. They are plain `sh` and call the same behavior described in the workflows, so the portable policy stays in Markdown and the harness only decides *when*.
 
+Generic examples:
+
+- `.ai/adapters/hooks/pre-commit.sh` — run checks and remind about the Resume block.
+- `.ai/adapters/hooks/session-end.sh` — prompt the checkpoint at session end.
+
+Tool-specific examples:
+
+- `.ai/adapters/hooks/opencode/session-end.sh` — OpenCode session-end trigger.
+- `.ai/adapters/hooks/claude-code/hook.sh` and `install.sh` — Claude Code `SessionStart`/`Stop` hooks, writing `.claude/settings.json` only when missing.
+
+Adapt the event names and paths to your tool version; harness hook formats change.
+
 ## Agents and subagents
 
 Subagents are agents. If they run in the same repository, they read the same `AGENTS.md` and `.ai/`, which makes parallel work possible:

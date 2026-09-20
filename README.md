@@ -112,6 +112,7 @@ SECURITY.md
 examples/                    # Sample adopted context (hello-service)
 docs/
 ├── design.md                # Why this template is built this way
+├── adoption.md              # Step-by-step adoption guide
 ├── harness-integration.md   # How it composes with hooks, subagents, skills, MCP
 ├── prd/                     # Product requirement documents (PRDs)
 └── decisions/               # ADR/TDR files (scale mode)
