@@ -2,78 +2,42 @@
 
 Any coding agent or harness must find the same source of truth: `AGENTS.md` and `.ai/`. Adapters exist only to route a specific tool to `AGENTS.md`; they must never duplicate project context.
 
-## Rules
+## Ready adapters
 
-- One source of truth: `AGENTS.md` and `.ai/`. Adapters contain no project facts.
-- Create adapters only for tools actually in use, and only when the tool does not read `AGENTS.md` on its own.
-- Codex, OpenCode, and Cursor read `AGENTS.md` directly and need no adapter.
-- Adapter paths and formats change between tool versions. Verify against the tool's current documentation before relying on one.
+Prebuilt thin adapters are in `.ai/adapters/`. Install them into a project with:
+
+```text
+sh .ai/adapters/install.sh [target-dir] [tool...]
+```
+
+With no tool names it installs all supported adapters into the target directory (default: the current directory). Example:
+
+```text
+sh .ai/adapters/install.sh . claude cursor
+```
+
+Supported: `claude`, `cursor`, `kiro`, `cline`, `roo`, `copilot`, `gemini`, `windsurf`, `aider`, `zed`, `qwen`.
+
+Codex, OpenCode, and Cursor read `AGENTS.md` directly and need no adapter.
 
 ## Mapping
 
-| Tool | Create this file | Mechanism |
+| Tool | Installed file | Source |
 | --- | --- | --- |
-| Claude Code | `CLAUDE.md` | `@` import of `AGENTS.md` |
-| Cursor | `.cursor/rules/agents.mdc` | always-apply rule |
-| Kiro | `.kiro/steering/agents.md` | always-included steering |
-| Cline | `.clinerules/agents.md` | rules directory |
-| Roo Code | `.roo/rules/00-agents.md` | rules directory |
-| GitHub Copilot | `.github/copilot-instructions.md` | instructions file |
-| Gemini CLI | `GEMINI.md` | context file |
-| Windsurf | `.windsurf/rules/agents.md` | always-on rule |
-| Aider | `.aider.conf.yml` | `read:` list |
-| Zed | `.rules` | rules file |
-| Qwen Code | `QWEN.md` | context file |
-| DeepSeek Harness (`dsh`) | verify its docs | use `AGENTS.md` if supported |
+| Claude Code | `CLAUDE.md` | `.ai/adapters/claude.md` |
+| Cursor | `.cursor/rules/agents.mdc` | `.ai/adapters/cursor.mdc` |
+| Kiro | `.kiro/steering/agents.md` | `.ai/adapters/kiro.md` |
+| Cline | `.clinerules/agents.md` | `.ai/adapters/cline.md` |
+| Roo Code | `.roo/rules/00-agents.md` | `.ai/adapters/roo.md` |
+| GitHub Copilot | `.github/copilot-instructions.md` | `.ai/adapters/copilot.md` |
+| Gemini CLI | `GEMINI.md` | `.ai/adapters/gemini.md` |
+| Windsurf | `.windsurf/rules/agents.md` | `.ai/adapters/windsurf.md` |
+| Aider | `.aider.conf.yml` | `.ai/adapters/aider.yml` |
+| Zed | `.rules` | `.ai/adapters/zed.md` |
+| Qwen Code | `QWEN.md` | `.ai/adapters/qwen.md` |
 
-## Adapter contents
+## Rules
 
-`CLAUDE.md`
-
-```text
-@AGENTS.md
-```
-
-`.cursor/rules/agents.mdc`
-
-```text
----
-description: Route all work through AGENTS.md
-alwaysApply: true
----
-
-Read and follow AGENTS.md at the repository root. It is the source of truth; do not duplicate project context here.
-```
-
-`.kiro/steering/agents.md`
-
-```text
----
-inclusion: always
----
-
-Read and follow AGENTS.md at the repository root. It is the source of truth; do not duplicate project context here.
-```
-
-`.clinerules/agents.md`, `.roo/rules/00-agents.md`, `.github/copilot-instructions.md`, `GEMINI.md`, `.rules`, `QWEN.md`
-
-```text
-Read and follow AGENTS.md at the repository root. It is the source of truth; do not duplicate project context here.
-```
-
-`.windsurf/rules/agents.md`
-
-```text
----
-trigger: always_on
----
-
-Read and follow AGENTS.md at the repository root. It is the source of truth; do not duplicate project context here.
-```
-
-`.aider.conf.yml`
-
-```text
-read:
-  - AGENTS.md
-```
+- One source of truth: `AGENTS.md` and `.ai/`. Adapters contain no project facts.
+- Install adapters only for tools actually in use.
+- Adapter paths and formats change between tool versions; verify against the tool's current documentation.

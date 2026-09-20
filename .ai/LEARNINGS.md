@@ -39,32 +39,4 @@ After promotion, set the entry to `Status: promoted` and keep it as a breadcrumb
 
 ## Entries
 
-### L-001 — Workflows and prompts duplicate their content
-Date: 2026-09-14
-Status: active
-Confidence: observed
-Scope: .ai/workflows/**, .ai/prompts/**
-Context: Auditing the template for maintainability.
-Evidence: `.ai/prompts/review.md`, `.ai/prompts/security-review.md`, and `.ai/prompts/cloud-port.md` restate the same steps as the matching workflows.
-Pattern / rule: Keep prompts as thin pointers to the workflow file; do not restate the procedure, or the two copies will diverge.
-Promotion: none
-
-### L-002 — Switching agents only survives if state is committed
-Date: 2026-09-14
-Status: active
-Confidence: observed
-Scope: repo | .ai/HANDOFF.md
-Context: Designing handoff between agents and providers after a usage limit.
-Evidence: An agent on the same checkout sees the working tree, but a different machine, cloud agent, or fresh clone sees only committed and pushed files.
-Pattern / rule: Before switching agents, commit and push work in progress or list uncommitted files explicitly in `.ai/HANDOFF.md`; never rely on chat history.
-Promotion: none
-
-### L-003 — Remaining quota is usually not observable
-Date: 2026-09-14
-Status: active
-Confidence: observed
-Scope: repo | .ai/LIMITS.md
-Context: Designing an automatic warning near provider usage limits.
-Evidence: Providers meter usage differently and do not expose a uniform quota API; OpenCode Go documents usage only in the web console.
-Pattern / rule: Combine reported usage when available with a work-volume proxy, and keep a continuously current Resume block; never state a remaining quota that was not observed.
-Promotion: none
+_None yet._

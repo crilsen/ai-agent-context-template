@@ -2,18 +2,49 @@
 
 A portable, Git-versioned context layer for software projects that use coding agents, agentic harnesses, or multiple AI tools over time.
 
-This template keeps the project knowledge in the repository instead of relying on a specific chat history, model, IDE, provider, or computer. It is designed to work with Codex, Cursor, Kiro, OpenCode, Claude Code, DeepSeek Harness (`dsh`), Cline, Roo Code, and future tools.
+Keep project knowledge in the repository instead of a chat history, so any agent can resume work regardless of model, IDE, provider, or computer. Works with Codex, Cursor, Kiro, OpenCode, Claude Code, DeepSeek Harness, Cline, Roo Code, and future tools.
 
 ## Why this exists
 
-Projects often lose working context when a conversation ends, an agent changes, or work moves to another machine. This template provides a small, maintainable source of truth for:
+Projects lose working context when a conversation ends, an agent changes, or work moves to another machine. This template provides a small, maintainable source of truth for:
 
 - project purpose and real architecture;
 - conventions and durable architectural decisions;
 - current work and operational session handoff;
 - reusable learnings captured during work and promoted into conventions, decisions, or tooling rules;
 - safe tool usage and completion criteria;
+- usage-limit checkpoints so switching agents is routine, not a rescue;
 - repeatable implementation, review, security, IaC, Kubernetes, and cloud-port workflows.
+
+## What it is / is not
+
+- It is a set of small Markdown files that travel with your repository.
+- It is not a framework, dependency, or service; nothing to install or run.
+- It is not a chat-history dump; files stay concise and current.
+- It does not store secrets; never commit credentials.
+
+## Quickstart
+
+1. Copy `AGENTS.md` and `.ai/` into the root of your project.
+
+```bash
+cp -R /path/to/agent-context-template/AGENTS.md /path/to/agent-context-template/.ai /path/to/your-project/
+```
+
+2. Optionally install the adapter for your tool (Codex, OpenCode, and Cursor need none).
+
+```bash
+sh /path/to/your-project/.ai/adapters/install.sh . claude
+```
+
+3. Ask an agent to adopt the repository once; it explores the code and fills the context.
+
+```text
+Read AGENTS.md, then .ai/workflows/adopt.md. Adopt this repository:
+explore the codebase and replace every placeholder and unknown in .ai/ with observed facts.
+```
+
+4. Commit the context with the project so it travels across tools and computers.
 
 ## How it works
 
@@ -27,57 +58,7 @@ Tool-specific adapter (optional)
           .ai/
 ```
 
-Tool-specific instruction files may be added when a tool requires them, but they should only direct the tool to `AGENTS.md`; they should not duplicate the project context.
-
-## Using the template
-
-1. Copy `AGENTS.md` and `.ai/` into the root of a project repository.
-2. Start an agent and run the adoption flow: it reads `AGENTS.md`, explores the project, and fills `.ai/` with observed facts.
-
-```text
-Read AGENTS.md, then .ai/workflows/adopt.md. Adopt this repository:
-explore the codebase and replace every placeholder and unknown in .ai/ with observed facts.
-```
-
-3. Link to existing authoritative documentation instead of duplicating it.
-4. Keep `DECISIONS.md` for durable architectural decisions; keep `TASKS.md` and `HANDOFF.md` concise and current.
-5. Commit the context with the project so it travels across tools and computers.
-
-Once adopted, day-to-day use needs no mention of folders or context files:
-
-```text
-Read AGENTS.md and perform the requested task.
-```
-
-To resume work:
-
-```text
-Read AGENTS.md and .ai/HANDOFF.md. Continue from the Resume block. Do not rediscover context.
-```
-
-## Safety model
-
-Agents may explore the repository, make scoped edits, and run safe validation. Deployments, destructive commands, real-cluster changes, secret changes, paid-resource creation, and other externally impactful operations require explicit authorization.
-
-## Repository layout
-
-```text
-AGENTS.md                 # Agent entry point and context router
-.ai/
-├── PROJECT.md            # Project overview
-├── ARCHITECTURE.md       # Observed architecture
-├── CONVENTIONS.md        # Existing and recommended conventions
-├── DECISIONS.md          # Durable ADR-style decisions
-├── TASKS.md              # Current work state
-├── HANDOFF.md            # Operational session handoff
-├── LEARNINGS.md          # Append-only buffer of reusable learnings
-├── ADAPTERS.md           # Thin per-tool adapters that route to AGENTS.md
-├── LIMITS.md             # Usage-limit thresholds and checkpoint policy
-├── TOOLS.md              # Safe and restricted tool usage
-├── VALIDATION.md         # Completion and validation criteria
-├── workflows/            # Task-specific operating procedures
-└── prompts/              # Reusable task prompts
-```
+Tool-specific files are thin adapters that only direct the tool to `AGENTS.md`; they never duplicate project context. Adapters live in `.ai/adapters/` and are catalogued in `.ai/ADAPTERS.md`.
 
 ## Using it across agents and providers
 
@@ -86,8 +67,43 @@ The context lives in the repository, so you can switch agents, models, or provid
 1. Before switching, follow `.ai/workflows/switch-agent.md` and fill the Resume block in `.ai/HANDOFF.md`.
 2. Commit and push work in progress, or list uncommitted files in `HANDOFF.md`, because a different machine or cloud agent only sees committed files.
 3. In the next agent, paste: `Read AGENTS.md and .ai/HANDOFF.md. Continue from the Resume block. Do not rediscover context.`
-4. If the tool does not read `AGENTS.md` automatically, create its thin adapter from `.ai/ADAPTERS.md`.
+4. If the tool does not read `AGENTS.md` automatically, install its adapter from `.ai/adapters/`.
 
 `AGENTS.md` stays small and `.ai/` is read on demand, so agents with lower context windows or tighter limits can still resume safely.
 
-`.ai/LIMITS.md` defines the checkpoint policy: the agent keeps the Resume block current, warns as usage approaches 70% of the budget, and finalizes the handoff before the limit is reached, so switching is a routine step rather than a rescue.
+`.ai/LIMITS.md` defines the checkpoint policy: the agent keeps the Resume block current, warns as usage approaches 70% of the budget, and finalizes the handoff before the limit is reached.
+
+## Repository layout
+
+```text
+AGENTS.md                    # Self-driving agent entry point and context router
+LICENSE
+README.md
+docs/
+└── design.md                # Why this template is built this way
+.ai/
+├── PROJECT.md               # Project overview
+├── ARCHITECTURE.md          # Observed architecture
+├── CONVENTIONS.md           # Existing and recommended conventions
+├── DECISIONS.md             # Durable ADR-style decisions
+├── TASKS.md                 # Current work state
+├── HANDOFF.md               # Operational session handoff (Resume block)
+├── LEARNINGS.md             # Append-only buffer of reusable learnings
+├── ADAPTERS.md              # Adapter catalogue and mapping
+├── LIMITS.md                # Usage-limit thresholds and checkpoint policy
+├── TOOLS.md                 # Safe and restricted tool usage
+├── VALIDATION.md            # Completion and validation criteria
+├── adapters/                # Ready-to-install thin adapters and install.sh
+├── workflows/               # Task-specific operating procedures
+└── prompts/                 # Reusable task prompts
+```
+
+## Safety model
+
+Agents may explore the repository, make scoped edits, and run safe validation. Deployments, destructive commands, real-cluster changes, secret changes, paid-resource creation, and other externally impactful operations require explicit authorization.
+
+## License
+
+[MIT](LICENSE).
+
+This project is not affiliated with or endorsed by any of the tools it references; tool names are trademarks of their respective owners.
