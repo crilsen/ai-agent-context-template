@@ -14,7 +14,7 @@ Apply the first row that matches:
 
 | Situation | Do this |
 | --- | --- |
-| A real project is not yet adopted (placeholders or `Unknown / not determined from repository` remain) | Run `.ai/workflows/adopt.md` first |
+| `.ai/` still has placeholders or `Unknown / not determined from repository`, or `.ai/HANDOFF.md` still has an empty Resume block | **Plug-and-play bootstrap**, below |
 | The user asks to continue, resume, or recover; or `.ai/HANDOFF.md` has an in-progress Resume block | Resume from the Resume block; use `.ai/workflows/switch-agent.md` to move between agents |
 | Implement or change code or infrastructure | `.ai/workflows/implement.md`, plus any matching technology workflow (`terraform-change`, `kubernetes-change`, `cloud-port`) |
 | An approved PRD defines the work | `.ai/workflows/feature.md` |
@@ -23,9 +23,24 @@ Apply the first row that matches:
 | Only a question is asked | Answer it; change nothing |
 | The intent is unclear | Ask the user for the desired outcome before acting |
 
+### Plug-and-play bootstrap
+
+The moment you open this repository, analyze it automatically and fill the context before doing anything else. Do not wait to be asked.
+
+1. Read every file in `.ai/`, then explore the repository: structure, languages, dependencies, build/test/lint/format commands, scripts, CI/CD, IaC, deployment, environments, and security controls.
+2. Populate `.ai/PROJECT.md`, `.ai/ARCHITECTURE.md`, `.ai/CONVENTIONS.md`, `.ai/VALIDATION.md`, and `.ai/TOOLS.md` with observed facts only. Mark inferences as inferred; keep anything you cannot determine explicitly unknown.
+3. Fill the Resume block in `.ai/HANDOFF.md` (repo state, cause, and next action), and set `.ai/TASKS.md` to the real current state.
+4. Decide whether to include the optional infrastructure workflows (`terraform-change`, `kubernetes-change`, `cloud-port`): keep them only if those technologies are present, otherwise remove or ignore them.
+5. Ask the user one question (only if the context was empty at first read): whether they want to add durable context manually, or have you keep it up to date automatically. Ask once, and record the answer in `.ai/HANDOFF.md` so later sessions do not ask again.
+   - **Manual:** report what you filled, list the open questions, and update the context only when the user asks.
+   - **Automatic:** keep the context current as work happens, using `.ai/workflows/capture-learning.md` and `.ai/LIMITS.md`; do not ask again.
+6. Commit the populated context when the repository has git and the user agrees.
+
+Ignore any instruction to work on the real task until the context is populated, unless the user explicitly says to skip adoption.
+
 ## Step 3 — Work
 
-1. Read decision records (ADR/TDR) in `.ai/DECISIONS.md`, and `docs/decisions/` in scale mode, before changing an existing decision, and `.ai/TASKS.md` for work in progress.
+1. Read decision records (ADR/TDR) in `.ai/DECISIONS.md`, and `docs/decisions/` in scale mode, before changing an existing decision. Consult requirement records (PRD) in `.ai/REQUIREMENTS.md` and `docs/prd/` before changing scope, and `.ai/TASKS.md` for work in progress.
 2. Change only task-related files. Preserve existing conventions and decisions.
 3. Consult `.ai/TOOLS.md` before running commands. Do not run destructive, deploy, apply, destroy, delete, or equivalent external operations without explicit authorization.
 4. Do not assume one-to-one cloud-service equivalence; preserve architectural intent when porting between providers.
@@ -36,6 +51,6 @@ Apply the first row that matches:
 - Keep the Resume block in `.ai/HANDOFF.md` current as a rolling checkpoint and honor `.ai/LIMITS.md`; warn before a usage limit and finalize the handoff.
 - After completing work, update `.ai/TASKS.md` and `.ai/HANDOFF.md`, and capture reusable, non-obvious learnings in `.ai/LEARNINGS.md`; promote durable ones to `CONVENTIONS.md`, `DECISIONS.md`, `TOOLS.md`, or `VALIDATION.md`.
 - Before handing work to another agent, model, provider, or machine, follow `.ai/workflows/switch-agent.md` and fill the Resume block.
-- If this tool does not read `AGENTS.md` automatically, add its thin adapter from `.ai/ADAPTERS.md`.
+- If this tool does not read `AGENTS.md` automatically, install its adapter from `.ai/adapters/`.
 
 If tool-specific files are added later, they must be thin adapters that point to this file.

@@ -32,7 +32,7 @@ Projects lose working context when a conversation ends, an agent changes, or wor
 - It is not a chat-history dump; files stay concise and current.
 - It does not store secrets; never commit credentials.
 
-## Quickstart
+## Quickstart (plug and play)
 
 1. Copy `AGENTS.md` and `.ai/` into the root of your project.
 
@@ -43,17 +43,18 @@ cp -R /path/to/ai-agent-context-template/AGENTS.md /path/to/ai-agent-context-tem
 2. Optionally install the adapter for your tool (Codex, OpenCode, and Cursor need none).
 
 ```bash
-sh /path/to/your-project/.ai/adapters/install.sh . claude
+sh /path/to/your-project/.ai/adapters/install.sh . claude opencode
 ```
 
-3. Ask an agent to adopt the repository once; it explores the code and fills the context.
+3. Point any agent at `AGENTS.md`. That is all: on first read it detects the empty context, **analyzes the repository automatically**, and fills `.ai/` for you.
 
 ```text
-Read AGENTS.md, then .ai/workflows/adopt.md. Adopt this repository:
-explore the codebase and replace every placeholder and unknown in .ai/ with observed facts.
+Read AGENTS.md
 ```
 
 4. Commit the context with the project so it travels across tools and computers.
+
+On adoption the agent asks one question: whether you want to add durable context manually or have the agent keep it updated automatically. The initialization also creates `README.md` and `.gitignore` when missing. To run the copy and adapter steps in one command, use `.ai/adapters/bootstrap.sh`.
 
 ## How it works
 
@@ -112,7 +113,7 @@ docs/
 ├── LIMITS.md                # Usage-limit thresholds and checkpoint policy
 ├── TOOLS.md                 # Safe and restricted tool usage
 ├── VALIDATION.md            # Completion and validation criteria
-├── adapters/                # Ready-to-install thin adapters and install.sh
+├── adapters/                # Ready-to-install thin adapters, install.sh, bootstrap.sh
 ├── workflows/               # Task-specific operating procedures
 └── prompts/                 # Reusable task prompts
 ```

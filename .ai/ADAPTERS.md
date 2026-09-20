@@ -13,12 +13,20 @@ sh .ai/adapters/install.sh [target-dir] [tool...]
 With no tool names it installs all supported adapters into the target directory (default: the current directory). Example:
 
 ```text
-sh .ai/adapters/install.sh . claude cursor
+sh .ai/adapters/install.sh . claude cursor opencode
 ```
 
-Supported: `claude`, `cursor`, `kiro`, `cline`, `roo`, `copilot`, `gemini`, `windsurf`, `aider`, `zed`, `qwen`.
+Supported: `claude`, `cursor`, `kiro`, `cline`, `roo`, `copilot`, `gemini`, `windsurf`, `aider`, `zed`, `qwen`. Pass `opencode` and `codex` too; they need no file and the script reports that.
 
-Codex, OpenCode, and Cursor read `AGENTS.md` directly and need no adapter.
+## Plug and play
+
+`.ai/adapters/bootstrap.sh` copies the context, creates `README.md` and `.gitignore` when missing, and installs adapters in one step:
+
+```text
+sh .ai/adapters/bootstrap.sh ~/my-project claude opencode
+```
+
+Then open an agent in the project and say only `Read AGENTS.md`. The agent detects the empty context, analyzes the repository, and fills `.ai/` automatically.
 
 ## Mapping
 
@@ -35,6 +43,8 @@ Codex, OpenCode, and Cursor read `AGENTS.md` directly and need no adapter.
 | Aider | `.aider.conf.yml` | `.ai/adapters/aider.yml` |
 | Zed | `.rules` | `.ai/adapters/zed.md` |
 | Qwen Code | `QWEN.md` | `.ai/adapters/qwen.md` |
+| OpenCode | none (reads `AGENTS.md` natively) | `.ai/adapters/opencode.md` |
+| Codex | none (reads `AGENTS.md` natively) | `.ai/adapters/codex.md` |
 
 ## Rules
 
