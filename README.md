@@ -37,7 +37,7 @@ Projects lose working context when a conversation ends, an agent changes, or wor
 1. Copy `AGENTS.md` and `.ai/` into the root of your project.
 
 ```bash
-cp -R /path/to/agent-context-template/AGENTS.md /path/to/agent-context-template/.ai /path/to/your-project/
+cp -R /path/to/ai-agent-context-template/AGENTS.md /path/to/ai-agent-context-template/.ai /path/to/your-project/
 ```
 
 2. Optionally install the adapter for your tool (Codex, OpenCode, and Cursor need none).
