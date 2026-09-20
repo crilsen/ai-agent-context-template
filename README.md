@@ -4,6 +4,8 @@ A portable, Git-versioned context layer for software projects that use coding ag
 
 Keep project knowledge in the repository instead of a chat history, so any agent can resume work regardless of model, IDE, provider, or computer. Works with Codex, Cursor, Kiro, OpenCode, Claude Code, DeepSeek Harness, Cline, Roo Code, and future tools.
 
+> **Use at your own risk.** Provided as is, without warranty. You are responsible for reviewing context before an agent acts on it, for the agent's actions, and for all costs including AI provider usage and token consumption. See [SECURITY.md](SECURITY.md).
+
 ## Harness-ready
 
 This template is ready to use in projects built with agentic harnesses. The portable core — `AGENTS.md`, `.ai/`, per-tool adapters, the Resume block, checkpoint/limits, and the switch-agent protocol — applies as-is to a harness project, so an agent running under any harness can pick up the context without extra setup.
@@ -98,6 +100,7 @@ CHANGELOG.md
 CONTRIBUTING.md
 LICENSE
 README.md
+SECURITY.md
 .github/                     # Issue/PR templates and CI
 .markdownlint-cli2.jsonc     # Markdown lint config used by CI
 docs/
@@ -125,6 +128,8 @@ docs/
 ## Safety model
 
 Agents may explore the repository, make scoped edits, and run safe validation. Deployments, destructive commands, real-cluster changes, secret changes, paid-resource creation, and other externally impactful operations require explicit authorization.
+
+Context files are instructions read by an agent, so treat them as untrusted input until reviewed. [SECURITY.md](SECURITY.md) covers prompt injection, the risks you accept when using this template, and how to report a vulnerability.
 
 ## License
 
