@@ -94,6 +94,8 @@ Product scope and technical choices are tracked separately:
 
 ```text
 AGENTS.md                    # Self-driving agent entry point and context router
+CHANGELOG.md
+CONTRIBUTING.md
 LICENSE
 README.md
 docs/
@@ -126,6 +128,6 @@ Agents may explore the repository, make scoped edits, and run safe validation. D
 
 [MIT](LICENSE).
 
-See [CHANGELOG.md](CHANGELOG.md) for release history.
+See [CHANGELOG.md](CHANGELOG.md) for release history and [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
 
 This project is not affiliated with or endorsed by any of the tools it references; tool names are trademarks of their respective owners.

@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- `CONTRIBUTING.md` with adapter, script, documentation, and pull-request guidelines.
+
 ## [0.1.0] - 2026-09-20
 
 ### Added
