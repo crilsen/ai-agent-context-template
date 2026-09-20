@@ -29,12 +29,12 @@ Generic examples:
 - `.ai/adapters/hooks/pre-commit.sh` — run checks and remind about the Resume block.
 - `.ai/adapters/hooks/session-end.sh` — prompt the checkpoint at session end.
 
-Tool-specific examples:
+Tool-specific examples (verified against each tool's documentation):
 
-- `.ai/adapters/hooks/opencode/session-end.sh` — OpenCode session-end trigger.
-- `.ai/adapters/hooks/claude-code/hook.sh` and `install.sh` — Claude Code `SessionStart`/`Stop` hooks, writing `.claude/settings.json` only when missing.
+- **OpenCode** — plugins are JavaScript/TypeScript loaded from `.opencode/plugins/` or `~/.config/opencode/plugins/`, not shell hooks. `.ai/adapters/hooks/opencode/relay.js` subscribes to `session.idle` and `session.status` and logs the checkpoint reminder. Install with `.ai/adapters/hooks/opencode/install.sh`.
+- **Claude Code** — hooks are shell commands declared in `.claude/settings.json`. Events `SessionStart`, `Stop` (per turn), and `SessionEnd` are used here. `.ai/adapters/hooks/claude-code/hook.sh` handles all three; `install.sh` writes `.claude/settings.json` only when missing.
 
-Adapt the event names and paths to your tool version; harness hook formats change.
+Adapt event names and paths to your tool version; hook formats change and are verified against current docs at the time of writing.
 
 ## Agents and subagents
 

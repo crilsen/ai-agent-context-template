@@ -4,6 +4,13 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-09-20
+
+### Fixed
+
+- OpenCode integration corrected: OpenCode uses JavaScript/TypeScript plugins (`.opencode/plugins/`), not shell hooks. Replaced the shell hook with `.ai/adapters/hooks/opencode/relay.js` plus `install.sh`, subscribing to `session.idle`.
+- Claude Code hooks updated to verified events: `SessionStart`, `Stop`, `SessionEnd` (the previous example used an incorrect session-end name).
+
 ## [0.4.0] - 2026-09-20
 
 ### Added
@@ -53,7 +60,8 @@ All notable changes to this project are documented here. The format is based on 
 - `docs/design.md` describing why the template is built this way.
 - MIT license.
 
-[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.1.0...v0.2.0
