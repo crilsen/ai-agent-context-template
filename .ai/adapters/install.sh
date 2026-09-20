@@ -27,6 +27,8 @@ for tool in "$@"; do
     aider)    copy_file "$target/.aider.conf.yml" "$src_dir/aider.yml" ;;
     zed)      copy_file "$target/.rules" "$src_dir/zed.md" ;;
     qwen)     copy_file "$target/QWEN.md" "$src_dir/qwen.md" ;;
+    cursor-guardrails) copy_file "$target/.cursor/rules/guardrails.mdc" "$src_dir/cursor-guardrails.mdc" ;;
+    kiro-guardrails)   copy_file "$target/.kiro/steering/guardrails.md" "$src_dir/kiro-guardrails.md" ;;
     opencode|codex)
       printf 'no adapter needed: %s reads AGENTS.md natively\n' "$tool"
       continue ;;
@@ -35,6 +37,6 @@ for tool in "$@"; do
   printf 'installed adapter: %s\n' "$tool"
 done
 
-if [ -f "$target/AGENTS.md" ] && [ ! -e "$target/CLAUDE.md" ] && [ ! -e "$target/.cursor" ] && [ ! -e "$target/.opencode" ]; then
+if [ -f "$target/AGENTS.md" ] && [ ! -e "$target/CLAUDE.md" ] && [ ! -e "$target/.cursor" ] && [ ! -e "$target/.opencode" ] && [ ! -e "$target/.kiro" ]; then
   printf 'hint: install an adapter for your tool, e.g. sh %s/install.sh %s claude\n' "$src_dir" "$target"
 fi

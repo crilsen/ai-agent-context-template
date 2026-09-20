@@ -31,10 +31,21 @@ Generic examples:
 
 Tool-specific examples (verified against each tool's documentation):
 
-- **OpenCode** — plugins are JavaScript/TypeScript loaded from `.opencode/plugins/` or `~/.config/opencode/plugins/`, not shell hooks. `.ai/adapters/hooks/opencode/relay.js` subscribes to `session.idle` and `session.status` and logs the checkpoint reminder. Install with `.ai/adapters/hooks/opencode/install.sh`.
-- **Claude Code** — hooks are shell commands declared in `.claude/settings.json`. Events `SessionStart`, `Stop` (per turn), and `SessionEnd` are used here. `.ai/adapters/hooks/claude-code/hook.sh` handles all three; `install.sh` writes `.claude/settings.json` only when missing.
+- **OpenCode** — plugins are JavaScript/TypeScript loaded from `.opencode/plugins/` or `~/.config/opencode/plugins/`, not shell hooks. `.ai/adapters/hooks/opencode/relay.js` subscribes to `session.idle` and logs the checkpoint reminder; `guardrails.js` blocks destructive commands and secret access via `tool.execute.before`. Install with `.ai/adapters/hooks/opencode/install.sh`.
+- **Claude Code** — hooks are shell commands declared in `.claude/settings.json`. Events `SessionStart`, `Stop` (per turn), and `SessionEnd` drive the checkpoint; `PreToolUse` runs `guardrails.sh` to deny destructive commands and secret edits. `install.sh` writes `.claude/settings.json` only when missing.
+- **Kiro** — has its own hooks system (`/docs/hooks/`). Hooks can trigger the checkpoint and handoff; steering files provide the policy. Kiro also reads `AGENTS.md` natively.
 
 Adapt event names and paths to your tool version; hook formats change and are verified against current docs at the time of writing.
+
+## Guardrails and enforcement
+
+`.ai/GUARDRAILS.md` states the portable policy. Materialize it per tool:
+
+- **Advisory:** `AGENTS.md`, `.ai/GUARDRAILS.md`, `.ai/TOOLS.md`.
+- **Scoped by path:** Cursor `.cursor/rules/guardrails.mdc` (`globs`), Kiro `.kiro/steering/guardrails.md` (`fileMatch`).
+- **Enforced:** Claude Code `PreToolUse` (`guardrails.sh`), OpenCode `tool.execute.before` (`guardrails.js`).
+
+Prefer enforcement for irreversible actions.
 
 ## Agents and subagents
 

@@ -1,5 +1,7 @@
 # Tools
 
+The rules behind these lists live in `.ai/GUARDRAILS.md`.
+
 ## Current availability
 
 No project tooling, credentials, environments, or command wrappers were found. Authentication requirements are **Unknown / not determined from repository**. Never store secrets in this file.

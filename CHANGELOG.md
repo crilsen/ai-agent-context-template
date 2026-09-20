@@ -4,6 +4,19 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-09-20
+
+### Added
+
+- `.ai/GUARDRAILS.md` — portable policy for allowed, restricted, and authorization-required actions, with advisory, scoped, and enforced levels.
+- Scoped guardrail rules: Cursor (`.cursor/rules/guardrails.mdc`, `globs`) and Kiro (`.kiro/steering/guardrails.md`, `fileMatch`).
+- Enforcement hooks: Claude Code `PreToolUse` (`guardrails.sh`) and OpenCode `tool.execute.before` (`guardrails.js`) block destructive commands and secret access.
+
+### Fixed
+
+- Corrected adapter guidance: Cursor and Kiro read `AGENTS.md` natively (confirmed against their docs), so their adapters are optional routing aids rather than required.
+- OpenCode plugin installer now installs both `relay.js` and `guardrails.js`.
+
 ## [0.4.1] - 2026-09-20
 
 ### Fixed
@@ -60,7 +73,8 @@ All notable changes to this project are documented here. The format is based on 
 - `docs/design.md` describing why the template is built this way.
 - MIT license.
 
-[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.2.0...v0.3.0

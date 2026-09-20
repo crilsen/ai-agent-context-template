@@ -48,7 +48,7 @@ Projects lose working context when a conversation ends, an agent changes, or wor
 cp -R /path/to/ai-agent-relay/AGENTS.md /path/to/ai-agent-relay/.ai /path/to/your-project/
 ```
 
-1. Optionally install the adapter for your tool (Codex, OpenCode, and Cursor need none).
+1. Optionally install the adapter for your tool (Codex, OpenCode, Cursor, and Kiro read `AGENTS.md` natively and need none).
 
 ```bash
 sh /path/to/your-project/.ai/adapters/install.sh . claude opencode
@@ -121,6 +121,7 @@ docs/
 ├── ARCHITECTURE.md          # Observed architecture
 ├── CONVENTIONS.md           # Existing and recommended conventions
 ├── DECISIONS.md             # ADR/TDR decision records (simple or scale)
+├── GUARDRAILS.md            # Portable policy for allowed and restricted actions
 ├── REQUIREMENTS.md          # PRD index and format
 ├── TASKS.md                 # Current work state
 ├── HANDOFF.md               # Operational session handoff (Resume block)
