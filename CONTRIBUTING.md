@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve the Agent Context Template. This project is a set of small Markdown files plus a few shell scripts; contributions should stay small, portable, and tool-agnostic.
+Thanks for helping improve ai-agent-relay. This project is a set of small Markdown files plus a few shell scripts; contributions should stay small, portable, and tool-agnostic.
 
 ## Ground rules
 

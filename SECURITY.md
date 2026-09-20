@@ -37,7 +37,7 @@ These are mitigations, not guarantees. Review before you trust.
 
 Please report security issues privately, not in a public issue:
 
-1. Use GitHub's [private vulnerability reporting](https://github.com/crilsen/ai-agent-context-template/security/advisories/new).
+1. Use GitHub's [private vulnerability reporting](https://github.com/crilsen/ai-agent-relay/security/advisories/new).
 2. Or open a minimal public issue asking for a private channel, without details.
 
 Include what you found, how to reproduce it, the potential impact, and any suggested fix.

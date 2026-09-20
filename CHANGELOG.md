@@ -6,11 +6,13 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
-- `CONTRIBUTING.md` with adapter, script, documentation, and pull-request guidelines.
-- Issue templates (bug, feature, adapter), a pull-request template, and a CI workflow running markdownlint and shellcheck.
-- `SECURITY.md` covering prompt injection through context files, the risks accepted by users, and private vulnerability reporting.
-- "Use at your own risk" notice in the README (context review, agent actions, and AI provider/token costs are the user's responsibility).
-- `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1).
+- `Makefile` with `make lint` (markdownlint + shellcheck) and `make test` (script tests).
+- `examples/hello-service` showing a filled-in context after adoption.
+- CI status, license, and AGENTS.md badges in the README.
+
+### Changed
+
+- Renamed the project to **ai-agent-relay**.
 
 ## [0.1.0] - 2026-09-20
 
@@ -29,5 +31,5 @@ All notable changes to this project are documented here. The format is based on 
 - `docs/design.md` describing why the template is built this way.
 - MIT license.
 
-[Unreleased]: https://github.com/crilsen/ai-agent-context-template/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/crilsen/ai-agent-context-template/releases/tag/v0.1.0
+[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/crilsen/ai-agent-relay/releases/tag/v0.1.0

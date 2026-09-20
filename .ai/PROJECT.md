@@ -2,7 +2,7 @@
 
 ## Identity
 
-- **Name:** ai-agent-context-template
+- **Name:** ai-agent-relay
 - **Objective:** A versioned, portable context layer that lets coding agents and agentic harnesses resume work without platform-specific chat history.
 - **Repository purpose:** Provide a reusable template to embed in a project repository.
 - **Status:** Initial context template; no application or infrastructure implementation is present.

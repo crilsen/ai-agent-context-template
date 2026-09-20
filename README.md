@@ -1,6 +1,10 @@
-# Agent Context Template
+# ai-agent-relay
 
-A portable, Git-versioned context layer for software projects that use coding agents, agentic harnesses, or multiple AI tools over time.
+[![lint](https://github.com/crilsen/ai-agent-relay/actions/workflows/lint.yml/badge.svg)](https://github.com/crilsen/ai-agent-relay/actions/workflows/lint.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![context: AGENTS.md](https://img.shields.io/badge/context-AGENTS.md-2ea44f.svg)](AGENTS.md)
+
+A portable, Git-versioned context layer for software projects that use coding agents, agentic harnesses, or multiple AI tools over time. Pass the baton between agents, models, providers, and machines without losing context.
 
 Keep project knowledge in the repository instead of a chat history, so any agent can resume work regardless of model, IDE, provider, or computer. Works with Codex, Cursor, Kiro, OpenCode, Claude Code, DeepSeek Harness, Cline, Roo Code, and future tools.
 
@@ -39,7 +43,7 @@ Projects lose working context when a conversation ends, an agent changes, or wor
 1. Copy `AGENTS.md` and `.ai/` into the root of your project.
 
 ```bash
-cp -R /path/to/ai-agent-context-template/AGENTS.md /path/to/ai-agent-context-template/.ai /path/to/your-project/
+cp -R /path/to/ai-agent-relay/AGENTS.md /path/to/ai-agent-relay/.ai /path/to/your-project/
 ```
 
 1. Optionally install the adapter for your tool (Codex, OpenCode, and Cursor need none).
@@ -100,10 +104,10 @@ CHANGELOG.md
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 LICENSE
+Makefile                     # make lint / make test
 README.md
 SECURITY.md
-.github/                     # Issue/PR templates and CI
-.markdownlint-cli2.jsonc     # Markdown lint config used by CI
+examples/                    # Sample adopted context (hello-service)
 docs/
 ├── design.md                # Why this template is built this way
 ├── prd/                     # Product requirement documents (PRDs)
