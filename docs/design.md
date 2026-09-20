@@ -28,6 +28,17 @@ Provider usage can be exhausted mid-task, and the exact remaining quota is often
 
 The Resume block is kept current after every meaningful step. `.ai/LIMITS.md` defines thresholds: warn at 70%, stop starting new work and finalize at 85%. Reported usage is used when the tool exposes it, plus a self-imposed work-volume proxy otherwise. This turns an abrupt limit into a planned handoff.
 
+## Decision — Decision records (ADR/TDR) and requirements (PRD)
+
+Two kinds of knowledge are distinct and must not be mixed:
+
+- Decision records answer *how* and *why technically*: **ADR** for architecture, **TDR** for technology choices. They share one mechanism and ID space per type.
+- Requirements answer *what* and *why for the product*: **PRD** documents, indexed by `REQUIREMENTS.md`.
+
+Decision records are scale-ready. **Simple mode** keeps entries inline in `DECISIONS.md`, best for small projects up to roughly 15–20 active records. **Scale mode** stores one file per record under `docs/decisions/` with `DECISIONS.md` as the index. Adoption chooses the mode and migration keeps IDs stable. This makes the template ready for scale without forcing the overhead on small projects.
+
+PRDs live under `docs/prd/` with an explicit lifecycle (`Draft → Approved → Implemented → Superseded`). Only an Approved PRD drives implementation, through `.ai/workflows/feature.md`, which honors the related ADR/TDR records and validates against the PRD acceptance criteria.
+
 ## Learnings captured during design
 
 - Workflows and prompts can duplicate their content; keep prompts as thin pointers to the workflow so the copies do not diverge.

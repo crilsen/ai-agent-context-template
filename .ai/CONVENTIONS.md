@@ -20,3 +20,4 @@ No project code or configuration exists yet, so no historical naming, Terraform/
 - Treat `LEARNINGS.md` as a bounded, append-only buffer; promote durable learnings into `CONVENTIONS.md`, `DECISIONS.md`, `TOOLS.md`, or `VALIDATION.md` instead of letting them accumulate.
 - Keep tool-specific files as thin adapters that only route to `AGENTS.md`; record their paths in `.ai/ADAPTERS.md`.
 - Keep the Resume block in `HANDOFF.md` current as a rolling checkpoint and honor the thresholds in `.ai/LIMITS.md`.
+- Keep decision records (ADR/TDR) and requirements (PRD) separate: decisions describe technical choices, PRDs describe product scope. Choose simple or scale mode for decisions at adoption.

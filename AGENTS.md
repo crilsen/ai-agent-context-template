@@ -17,6 +17,7 @@ Apply the first row that matches:
 | A real project is not yet adopted (placeholders or `Unknown / not determined from repository` remain) | Run `.ai/workflows/adopt.md` first |
 | The user asks to continue, resume, or recover; or `.ai/HANDOFF.md` has an in-progress Resume block | Resume from the Resume block; use `.ai/workflows/switch-agent.md` to move between agents |
 | Implement or change code or infrastructure | `.ai/workflows/implement.md`, plus any matching technology workflow (`terraform-change`, `kubernetes-change`, `cloud-port`) |
+| An approved PRD defines the work | `.ai/workflows/feature.md` |
 | Review code or architecture | `.ai/workflows/review.md` |
 | Security review | `.ai/workflows/security-review.md` |
 | Only a question is asked | Answer it; change nothing |
@@ -24,7 +25,7 @@ Apply the first row that matches:
 
 ## Step 3 — Work
 
-1. Read `.ai/DECISIONS.md` before changing an existing decision, and `.ai/TASKS.md` for work in progress.
+1. Read decision records (ADR/TDR) in `.ai/DECISIONS.md`, and `docs/decisions/` in scale mode, before changing an existing decision, and `.ai/TASKS.md` for work in progress.
 2. Change only task-related files. Preserve existing conventions and decisions.
 3. Consult `.ai/TOOLS.md` before running commands. Do not run destructive, deploy, apply, destroy, delete, or equivalent external operations without explicit authorization.
 4. Do not assume one-to-one cloud-service equivalence; preserve architectural intent when porting between providers.
