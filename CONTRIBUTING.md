@@ -4,11 +4,12 @@ Thanks for helping improve the Agent Context Template. This project is a set of 
 
 ## Ground rules
 
-- Keep the portable core portable. `AGENTS.md` and `.ai/` are the source of truth; nothing should depend on one IDE, model, or provider.
+- Keep the portable core portable: `AGENTS.md` and `.ai/` are the source of truth; nothing should depend on one IDE, model, or provider.
 - Keep tool-specific files as thin adapters that only route to `AGENTS.md`. Do not put project facts in them.
 - Keep `AGENTS.md` short and route-oriented; put detail in `.ai/`.
 - Do not invent history. Facts are observed, inferences are marked inferred, unknowns stay unknown.
 - Never store secrets, credentials, machine paths, or personal data in the repository.
+- Follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Ways to contribute
 

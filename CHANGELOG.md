@@ -10,6 +10,7 @@ All notable changes to this project are documented here. The format is based on 
 - Issue templates (bug, feature, adapter), a pull-request template, and a CI workflow running markdownlint and shellcheck.
 - `SECURITY.md` covering prompt injection through context files, the risks accepted by users, and private vulnerability reporting.
 - "Use at your own risk" notice in the README (context review, agent actions, and AI provider/token costs are the user's responsibility).
+- `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1).
 
 ## [0.1.0] - 2026-09-20
 

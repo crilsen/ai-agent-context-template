@@ -97,6 +97,7 @@ Product scope and technical choices are tracked separately:
 ```text
 AGENTS.md                    # Self-driving agent entry point and context router
 CHANGELOG.md
+CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 LICENSE
 README.md
