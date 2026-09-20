@@ -19,6 +19,16 @@ No project tooling, credentials, environments, or command wrappers were found. A
 - `kubectl apply` against a real cluster, `kubectl delete`, or equivalent cluster mutation.
 - Secret changes, destructive state operations, irreversible changes, paid-resource creation, or any external operation with material impact.
 
+## MCP servers and external tools
+
+MCP servers are configured by the harness, not by this template. Record them here so agents know what is available and what is restricted. Do not record endpoints, tokens, or credentials.
+
+| Tool or MCP server | Purpose | Allowed | Restricted |
+| --- | --- | --- | --- |
+| `<name>` | `<what it does>` | `<read-only actions>` | `<mutating/internal actions>` |
+
+When a tool changes how context is captured or validated, note it in `.ai/LEARNINGS.md` and, if durable, in this file.
+
 ## Technology-specific guidance when adopted
 
 | Technology | Usually safe | Restricted |

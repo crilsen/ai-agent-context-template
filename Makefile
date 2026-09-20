@@ -5,7 +5,7 @@
 
 SHELL := /bin/sh
 MDFILES := $(shell find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*')
-SHELLSCRIPTS := $(wildcard .ai/adapters/*.sh)
+SHELLSCRIPTS := $(wildcard .ai/adapters/*.sh) $(wildcard .ai/adapters/hooks/*.sh)
 TESTDIR := $(shell mktemp -d 2>/dev/null || echo /tmp/actx-test)
 
 .PHONY: help lint lint-md lint-sh test test-bootstrap test-install clean

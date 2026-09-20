@@ -51,6 +51,7 @@ Ignore any instruction to work on the real task until the context is populated, 
 - Keep the Resume block in `.ai/HANDOFF.md` current as a rolling checkpoint and honor `.ai/LIMITS.md`; warn before a usage limit and finalize the handoff.
 - After completing work, update `.ai/TASKS.md` and `.ai/HANDOFF.md`, and capture reusable, non-obvious learnings in `.ai/LEARNINGS.md`; promote durable ones to `CONVENTIONS.md`, `DECISIONS.md`, `TOOLS.md`, or `VALIDATION.md`.
 - Before handing work to another agent, model, provider, or machine, follow `.ai/workflows/switch-agent.md` and fill the Resume block.
+- When working as or with subagents, only the primary agent writes `.ai/HANDOFF.md`, `.ai/TASKS.md`, and `.ai/LEARNINGS.md`; subagents report back and the primary agent integrates. See `docs/harness-integration.md`.
 - If this tool does not read `AGENTS.md` automatically, install its adapter from `.ai/adapters/`.
 
 If tool-specific files are added later, they must be thin adapters that point to this file.

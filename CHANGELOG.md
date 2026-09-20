@@ -4,6 +4,19 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-20
+
+### Added
+
+- `docs/harness-integration.md` explaining how the context layer composes with hooks, subagents, skills, and MCP.
+- Project skill template under `.ai/skills/`.
+- Example hooks (`.ai/adapters/hooks/pre-commit.sh`, `session-end.sh`) that trigger the checkpoint workflow.
+- MCP/tool registration table in `.ai/TOOLS.md`.
+
+### Changed
+
+- Concurrency rule: only the primary agent writes `HANDOFF.md`, `TASKS.md`, and `LEARNINGS.md`; subagents report back.
+
 ## [0.2.0] - 2026-09-20
 
 ### Added
@@ -33,6 +46,7 @@ All notable changes to this project are documented here. The format is based on 
 - `docs/design.md` describing why the template is built this way.
 - MIT license.
 
-[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/crilsen/ai-agent-relay/releases/tag/v0.1.0

@@ -14,6 +14,8 @@ Keep project knowledge in the repository instead of a chat history, so any agent
 
 This template is ready to use in projects built with agentic harnesses. The portable core — `AGENTS.md`, `.ai/`, per-tool adapters, the Resume block, checkpoint/limits, and the switch-agent protocol — applies as-is to a harness project, so an agent running under any harness can pick up the context without extra setup.
 
+It composes with harness features instead of replacing them: hooks trigger the checkpoint and handoff, subagents read the same context, skills can live under `.ai/skills/`, and MCP tools are registered in `.ai/TOOLS.md`. See [docs/harness-integration.md](docs/harness-integration.md).
+
 Note what it is: the template is the portable context layer that a harness reads, not a harness itself. It carries no runtime.
 
 The bundled infrastructure workflows (`terraform-change`, `kubernetes-change`, `cloud-port`) are optional; a harness or application project can ignore or remove them during adoption.
@@ -110,6 +112,7 @@ SECURITY.md
 examples/                    # Sample adopted context (hello-service)
 docs/
 ├── design.md                # Why this template is built this way
+├── harness-integration.md   # How it composes with hooks, subagents, skills, MCP
 ├── prd/                     # Product requirement documents (PRDs)
 └── decisions/               # ADR/TDR files (scale mode)
 .ai/
@@ -125,6 +128,7 @@ docs/
 ├── LIMITS.md                # Usage-limit thresholds and checkpoint policy
 ├── TOOLS.md                 # Safe and restricted tool usage
 ├── VALIDATION.md            # Completion and validation criteria
+├── skills/                  # Project skill template and examples
 ├── adapters/                # Ready-to-install thin adapters, install.sh, bootstrap.sh
 ├── workflows/               # Task-specific operating procedures
 └── prompts/                 # Reusable task prompts
