@@ -9,7 +9,7 @@ This template is plug-and-play: the agent analyzes the repository automatically 
 3. Replace every `Unknown / not determined from repository` and placeholder with observed facts. Mark inferences as inferred. Do not invent history, conventions, or decisions.
 4. Populate `CONVENTIONS.md` from what the code actually does before adding recommendations.
 5. Choose the decision-record mode in `DECISIONS.md`: simple (entries inline) or scale (one file per record under `docs/decisions/`). Record decisions observed or approved, and create `docs/decisions/` only in scale mode.
-6. Initialize `REQUIREMENTS.md`: create `docs/prd/` and index existing product requirements, or leave it empty if none exist.
+6. Initialize `REQUIREMENTS.md`: create `docs/prd/` and index existing product requirements, or leave it empty if none exist. Do the same for `SPECS.md` and `docs/spec/` if the project uses the optional spec-driven flow.
 7. Fill `VALIDATION.md` with the project's real commands (build, test, lint, typecheck, format) discovered from the repository.
 8. Fill `TOOLS.md` with the real tooling and the safe versus restricted commands for this project.
 9. Update `PROJECT.md` (and the project's own README if present) so it describes the project, not the template.

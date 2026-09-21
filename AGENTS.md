@@ -18,6 +18,7 @@ Apply the first row that matches:
 | The user asks to continue, resume, or recover; or `.ai/HANDOFF.md` has an in-progress Resume block | Resume from the Resume block; use `.ai/workflows/switch-agent.md` to move between agents |
 | Implement or change code or infrastructure | `.ai/workflows/implement.md`, plus any matching technology workflow (`terraform-change`, `kubernetes-change`, `cloud-port`) |
 | An approved PRD defines the work | `.ai/workflows/feature.md` |
+| An approved spec defines the work (spec-driven) | `.ai/workflows/feature.md` + `.ai/SPECS.md` |
 | Review code or architecture | `.ai/workflows/review.md` |
 | Security review | `.ai/workflows/security-review.md` |
 | Only a question is asked | Answer it; change nothing |
@@ -40,7 +41,7 @@ Ignore any instruction to work on the real task until the context is populated, 
 
 ## Step 3 — Work
 
-1. Read decision records (ADR/TDR) in `.ai/DECISIONS.md`, and `docs/decisions/` in scale mode, before changing an existing decision. Consult requirement records (PRD) in `.ai/REQUIREMENTS.md` and `docs/prd/` before changing scope, and `.ai/TASKS.md` for work in progress.
+1. Read decision records (ADR/TDR) in `.ai/DECISIONS.md`, and `docs/decisions/` in scale mode, before changing an existing decision. Consult requirement records (PRD) in `.ai/REQUIREMENTS.md` and `docs/prd/`, and specs in `.ai/SPECS.md` and `docs/spec/`, before changing scope, and `.ai/TASKS.md` for work in progress.
 2. Change only task-related files. Preserve existing conventions and decisions.
 3. Consult `.ai/GUARDRAILS.md` and `.ai/TOOLS.md` before running commands. Do not run destructive, deploy, apply, destroy, delete, or equivalent external operations without explicit authorization.
 4. Do not assume one-to-one cloud-service equivalence; preserve architectural intent when porting between providers.

@@ -96,6 +96,7 @@ The context lives in the repository, so you can switch agents, models, or provid
 Product scope and technical choices are tracked separately:
 
 - **Requirements (PRDs)** live under `docs/prd/` and are indexed by `.ai/REQUIREMENTS.md`, with a lifecycle of `Draft → Approved → Implemented → Superseded`. Only an Approved PRD drives implementation, through `.ai/workflows/feature.md`.
+- **Specs (optional)** live under `docs/spec/` and are indexed by `.ai/SPECS.md`. When a change is large enough that the plan should be reviewed before code, the spec-driven flow produces design, plan, and ordered tasks. This is complementary to spec-driven tools, not a replacement; use it only when it earns its keep.
 - **Decisions (ADR/TDR)** live in `.ai/DECISIONS.md`. Adoption picks **simple mode** (entries inline, for small projects) or **scale mode** (one file per record under `docs/decisions/`, with `DECISIONS.md` as the index). ADR covers architecture; TDR covers technology choices.
 
 ## Repository layout
@@ -115,6 +116,7 @@ docs/
 ├── adoption.md              # Step-by-step adoption guide
 ├── harness-integration.md   # How it composes with hooks, subagents, skills, MCP
 ├── prd/                     # Product requirement documents (PRDs)
+├── spec/                    # Optional specs (spec-driven flow)
 └── decisions/               # ADR/TDR files (scale mode)
 .ai/
 ├── PROJECT.md               # Project overview
@@ -123,6 +125,7 @@ docs/
 ├── DECISIONS.md             # ADR/TDR decision records (simple or scale)
 ├── GUARDRAILS.md            # Portable policy for allowed and restricted actions
 ├── REQUIREMENTS.md          # PRD index and format
+├── SPECS.md                 # Optional spec-driven flow (spec → plan → tasks)
 ├── TASKS.md                 # Current work state
 ├── HANDOFF.md               # Operational session handoff (Resume block)
 ├── LEARNINGS.md             # Append-only buffer of reusable learnings

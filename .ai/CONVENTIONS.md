@@ -21,4 +21,5 @@ No project code or configuration exists yet, so no historical naming, Terraform/
 - Keep tool-specific files as thin adapters that only route to `AGENTS.md`; record their paths in `.ai/ADAPTERS.md`.
 - Keep the Resume block in `HANDOFF.md` current as a rolling checkpoint and honor the thresholds in `.ai/LIMITS.md`.
 - Keep decision records (ADR/TDR) and requirements (PRD) separate: decisions describe technical choices, PRDs describe product scope. Choose simple or scale mode for decisions at adoption.
+- Use the optional spec-driven flow (`.ai/SPECS.md`) only for large or risky changes; small changes go straight through `.ai/workflows/implement.md`.
 - Only the primary agent writes `HANDOFF.md`, `TASKS.md`, and `LEARNINGS.md`; subagents report back instead of committing shared state, to avoid concurrent writes to the single source of truth.

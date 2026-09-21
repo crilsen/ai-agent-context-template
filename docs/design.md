@@ -39,6 +39,14 @@ Decision records are scale-ready. **Simple mode** keeps entries inline in `DECIS
 
 PRDs live under `docs/prd/` with an explicit lifecycle (`Draft → Approved → Implemented → Superseded`). Only an Approved PRD drives implementation, through `.ai/workflows/feature.md`, which honors the related ADR/TDR records and validates against the PRD acceptance criteria.
 
+The spec-driven flow is **optional and complementary**. `.ai/SPECS.md` defines a spec → plan → tasks path under `docs/spec/`, used only when a change is large or risky enough that the plan should be reviewed before code. This is deliberately not a mandatory phase: forcing specs on small changes adds ceremony, and the project positions itself as a context layer that works alongside spec-driven tools (Spec Kit, Kiro specs) rather than replacing them.
+
+## Decision — Learning feedback loop
+
+Recording state and decisions was not enough; agents also rediscover the same lessons across sessions and tools. `.ai/LEARNINGS.md` closes the loop: what is learned is captured, and what proves durable is **promoted** into `CONVENTIONS.md`, `DECISIONS.md`, `TOOLS.md`, or `VALIDATION.md`. The buffer is bounded (40 active entries) and compacted, so it does not grow into noise.
+
+The distinction from memory features in harnesses: most store history or retrieve facts, but do not turn a lesson into a project rule. The relay's feedback loop is the promotion step, and it lives in the repository so it is portable and versioned.
+
 ## Learnings captured during design
 
 - Workflows and prompts can duplicate their content; keep prompts as thin pointers to the workflow so the copies do not diverge.

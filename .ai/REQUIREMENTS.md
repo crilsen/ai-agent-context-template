@@ -10,6 +10,7 @@ Product requirements describe what to build and why. PRDs are the source of trut
 - Acceptance criteria must be concrete and testable, and validation maps back to them.
 - Do not duplicate requirements here; link to the PRD.
 - Record technical choices that a PRD depends on as ADR/TDR entries in `.ai/DECISIONS.md`.
+- For large or risky work, a PRD can feed an optional spec-driven flow (`.ai/SPECS.md`, `docs/spec/`) that produces design, plan, and tasks before implementation.
 
 ## PRD format
 

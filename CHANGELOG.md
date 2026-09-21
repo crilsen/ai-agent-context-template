@@ -4,6 +4,17 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-09-20
+
+### Added
+
+- Optional spec-driven flow: `.ai/SPECS.md` (spec → plan → tasks) with `docs/spec/` and an example spec. It is complementary to spec-driven tools (Spec Kit, Kiro specs), not a replacement, and is used only for large or risky changes.
+- `docs/design.md` now documents the spec-driven decision and the learning feedback loop, including how the promotion step differs from harness memory features.
+
+### Changed
+
+- `.ai/workflows/feature.md` gained an optional spec step; `AGENTS.md`, `REQUIREMENTS.md`, `CONVENTIONS.md`, `adopt.md`, and the README were updated to route to it.
+
 ## [0.5.0] - 2026-09-20
 
 ### Added
@@ -73,7 +84,8 @@ All notable changes to this project are documented here. The format is based on 
 - `docs/design.md` describing why the template is built this way.
 - MIT license.
 
-[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.3.0...v0.4.0
