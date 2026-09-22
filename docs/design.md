@@ -9,6 +9,8 @@ Why this template is built the way it is. The published `.ai/` ships in a clean,
 - Tool-specific files are thin adapters only; they route to `AGENTS.md` and contain no project facts.
 - Keep `AGENTS.md` small and read `.ai/` on demand, so agents with lower context windows or tighter usage limits can resume safely.
 - Prefer evidence-based context: mark facts observed, inferences inferred, and unknowns unknown. Do not invent history.
+- Context is curated, not retrieved: selection is explicit and auditable; no embeddings, no external index.
+- The layer records the outcome of reasoning (decisions, plans, learnings), not the reasoning process.
 
 ## Decision — Bounded learnings buffer with promotion
 
@@ -46,6 +48,25 @@ The spec-driven flow is **optional and complementary**. `.ai/SPECS.md` defines a
 Recording state and decisions was not enough; agents also rediscover the same lessons across sessions and tools. `.ai/LEARNINGS.md` closes the loop: what is learned is captured, and what proves durable is **promoted** into `CONVENTIONS.md`, `DECISIONS.md`, `TOOLS.md`, or `VALIDATION.md`. The buffer is bounded (40 active entries) and compacted, so it does not grow into noise.
 
 The distinction from memory features in harnesses: most store history or retrieve facts, but do not turn a lesson into a project rule. The relay's feedback loop is the promotion step, and it lives in the repository so it is portable and versioned.
+
+## Decision — Curated context, not retrieval (no RAG)
+
+Context is selected by **explicit rule**, not by semantic similarity. `AGENTS.md` maps the task to the files to read (`PROJECT`, `ARCHITECTURE`, `CONVENTIONS`, then only what the task needs), and workflows name their inputs. There is no vector index, no embedding service, and no top-k retrieval.
+
+Reasoning:
+
+- Project state and decisions are exactly the kind of knowledge similarity search handles poorly: a stale but lexically close passage can outrank the current truth.
+- Curated context is auditable. What the agent will read can be reviewed in a pull request.
+- It stays small and portable. There is no external index to build, host, feed, or keep in sync.
+- It travels with the repository, so any harness gets the same context.
+
+RAG is not forbidden; it composes. Large codebases or document sets may still benefit from retrieval, and a harness can run both. The relay covers the curated layer: current state, decisions, and rules. The two often reduce each other's need rather than compete.
+
+## Decision — No model-level reasoning injected (no CoT)
+
+Chain-of-thought is the model's concern, not the context layer's. The relay does not instruct "think step by step" and does not keep a scratchpad; it records the **result** of reasoning — decisions, plans, and promoted learnings — not the reasoning itself.
+
+What looks adjacent is the workflows (`.ai/workflows/*.md`), but those are deterministic procedures with ordered, checkable steps, not internal reasoning. Injecting CoT into context files tends to conflict with models that already reason internally, and dates poorly. Recording the outcome (ADR, spec, learning) is the durable part.
 
 ## Learnings captured during design
 

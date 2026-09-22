@@ -4,6 +4,12 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-09-21
+
+### Added
+
+- `docs/design.md` documents two deliberate non-goals: context is curated rather than retrieved (no RAG / embeddings / external index), and the layer records the outcome of reasoning rather than injecting chain-of-thought.
+
 ## [0.6.0] - 2026-09-20
 
 ### Added
@@ -84,7 +90,8 @@ All notable changes to this project are documented here. The format is based on 
 - `docs/design.md` describing why the template is built this way.
 - MIT license.
 
-[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/crilsen/ai-agent-relay/compare/v0.6.1...HEAD
+[0.6.1]: https://github.com/crilsen/ai-agent-relay/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/crilsen/ai-agent-relay/compare/v0.4.0...v0.4.1
