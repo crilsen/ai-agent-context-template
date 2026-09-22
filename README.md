@@ -115,6 +115,7 @@ docs/
 ├── design.md                # Why this template is built this way
 ├── adoption.md              # Step-by-step adoption guide
 ├── harness-integration.md   # How it composes with hooks, subagents, skills, MCP
+├── assets/                  # Social preview images
 ├── prd/                     # Product requirement documents (PRDs)
 ├── spec/                    # Optional specs (spec-driven flow)
 └── decisions/               # ADR/TDR files (scale mode)

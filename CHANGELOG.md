@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- Social preview images under `docs/assets/` (1200×630 for GitHub/link cards, plus wide and portrait variants and the SVG source).
+
 ## [0.6.1] - 2026-09-21
 
 ### Added

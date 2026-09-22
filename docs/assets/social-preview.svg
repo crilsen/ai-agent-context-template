@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="55%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#0a1a15"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3fb950"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.8">
+      <stop offset="0%" stop-color="#3fb950" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3fb950" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#glow)"/>
+  <rect x="0" y="0" width="1280" height="6" fill="url(#accent)"/>
+
+  <!-- relay mark: three nodes passing a baton -->
+  <g transform="translate(96,150)">
+    <circle cx="0" cy="0" r="13" fill="none" stroke="#3fb950" stroke-width="4"/>
+    <circle cx="90" cy="0" r="13" fill="none" stroke="#58a6ff" stroke-width="4"/>
+    <circle cx="180" cy="0" r="13" fill="none" stroke="#a371f7" stroke-width="4"/>
+    <line x1="14" y1="0" x2="76" y2="0" stroke="#30363d" stroke-width="4"/>
+    <line x1="104" y1="0" x2="166" y2="0" stroke="#30363d" stroke-width="4"/>
+    <circle cx="128" cy="0" r="7" fill="#e6edf3"/>
+  </g>
+
+  <!-- title -->
+  <text x="96" y="300" font-family="Menlo, Monaco, monospace" font-size="78" font-weight="700" fill="#e6edf3" letter-spacing="-1">ai-agent-relay</text>
+
+  <!-- rule -->
+  <rect x="98" y="330" width="150" height="5" rx="2.5" fill="url(#accent)"/>
+
+  <!-- tagline -->
+  <text x="96" y="396" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="31" fill="#c9d1d9">Portable context for AI coding agents</text>
+  <text x="96" y="438" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="31" fill="#c9d1d9">and agentic harnesses</text>
+
+  <!-- bullets -->
+  <g font-family="Menlo, Monaco, monospace" font-size="21" fill="#8b949e">
+    <text x="96" y="512">versioned in the repo</text>
+    <text x="410" y="512">switch agents, keep context</text>
+    <text x="812" y="512">MIT</text>
+  </g>
+  <g fill="#3fb950">
+    <circle cx="76" cy="505" r="5"/>
+    <circle cx="390" cy="505" r="5"/>
+    <circle cx="792" cy="505" r="5"/>
+  </g>
+
+  <!-- footer -->
+  <text x="1184" y="596" text-anchor="end" font-family="Menlo, Monaco, monospace" font-size="19" fill="#6e7681">github.com/crilsen/ai-agent-relay</text>
+</svg>
