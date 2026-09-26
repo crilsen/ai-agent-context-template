@@ -34,7 +34,7 @@ Open an agent in the project and say only:
 Read AGENTS.md
 ```
 
-Because `.ai/` is still empty, the agent enters the plug-and-play bootstrap: it explores the repository and fills `PROJECT.md`, `ARCHITECTURE.md`, `CONVENTIONS.md`, `VALIDATION.md`, `TOOLS.md`, `TASKS.md`, and the Resume block in `HANDOFF.md` with observed facts. It then asks once whether you want to maintain context manually or automatically.
+Because `.ai/` is still empty, the agent enters the plug-and-play bootstrap: it explores the repository and fills `PROJECT.md`, `ARCHITECTURE.md`, `CONVENTIONS.md`, `VALIDATION.md`, `TOOLS.md`, `TASKS.md`, and the Resume block in `HANDOFF.md` with observed facts. It then asks once whether you want to maintain context manually or automatically, and always asks for annotations (default English) whether to keep English or change to another language, and to which one.
 
 If your tool does not read `AGENTS.md` automatically, install its adapter first:
 

@@ -7,6 +7,7 @@
 - Budget / usage observed: `<unknown | value from the tool>`
 - Checkpoint updated: `<YYYY-MM-DD HH:MM>`
 - Last goal: `<what was being done>`
+- Annotation language: `<English | other language + standing preference yes/no>`
 - Exact next action: `<the next concrete step>`
 - Blocked by: `None.`
 - Resume prompt: `Read AGENTS.md and .ai/HANDOFF.md. Continue from the Resume block. Do not rediscover context.`

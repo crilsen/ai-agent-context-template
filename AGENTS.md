@@ -32,9 +32,10 @@ The moment you open this repository, analyze it automatically and fill the conte
 2. Populate `.ai/PROJECT.md`, `.ai/ARCHITECTURE.md`, `.ai/CONVENTIONS.md`, `.ai/VALIDATION.md`, and `.ai/TOOLS.md` with observed facts only. Mark inferences as inferred; keep anything you cannot determine explicitly unknown.
 3. Fill the Resume block in `.ai/HANDOFF.md` (repo state, cause, and next action), and set `.ai/TASKS.md` to the real current state.
 4. Decide whether to include the optional infrastructure workflows (`terraform-change`, `kubernetes-change`, `cloud-port`): keep them only if those technologies are present, otherwise remove or ignore them.
-5. Ask the user one question (only if the context was empty at first read): whether they want to add durable context manually, or have you keep it up to date automatically. Ask once, and record the answer in `.ai/HANDOFF.md` so later sessions do not ask again.
+5. Ask the user two questions (only if the context was empty at first read): (a) whether they want to add durable context manually, or have you keep it up to date automatically — ask once, and record the answer in `.ai/HANDOFF.md` so later sessions do not ask again;
    - **Manual:** report what you filled, list the open questions, and update the context only when the user asks.
    - **Automatic:** keep the context current as work happens, using `.ai/workflows/capture-learning.md` and `.ai/LIMITS.md`; do not ask again.
+   (b) annotation language (code comments and relay `.md` files: `AGENTS.md`, `.ai/`, `docs/`, `README.md`, PRD/spec/decision records) — default to English and ask whether to keep it or change to another language, and to which one. Record the answer in `.ai/HANDOFF.md` (`Annotation language: ...`).
 6. Commit the populated context when the repository has git and the user agrees.
 
 Ignore any instruction to work on the real task until the context is populated, unless the user explicitly says to skip adoption.
@@ -49,6 +50,7 @@ Ignore any instruction to work on the real task until the context is populated, 
 
 ## Always on
 
+- Annotations default to English. Always ask before writing or updating code comments or relay `.md` files whether to keep English or change to another language, and to which one; record the choice in `.ai/HANDOFF.md` (`Annotation language: ...`), and apply it consistently for that task/session. Re-ask for each new task or session unless the user declared a standing preference.
 - Keep the Resume block in `.ai/HANDOFF.md` current as a rolling checkpoint and honor `.ai/LIMITS.md`; warn before a usage limit and finalize the handoff.
 - After completing work, update `.ai/TASKS.md` and `.ai/HANDOFF.md`, and capture reusable, non-obvious learnings in `.ai/LEARNINGS.md`; promote durable ones to `CONVENTIONS.md`, `DECISIONS.md`, `TOOLS.md`, or `VALIDATION.md`.
 - Before handing work to another agent, model, provider, or machine, follow `.ai/workflows/switch-agent.md` and fill the Resume block.

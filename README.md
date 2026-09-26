@@ -62,7 +62,7 @@ Read AGENTS.md
 
 1. Commit the context with the project so it travels across tools and computers.
 
-On adoption the agent asks one question: whether you want to add durable context manually or have the agent keep it updated automatically. The initialization also creates `README.md` and `.gitignore` when missing. To run the copy and adapter steps in one command, use `.ai/adapters/bootstrap.sh`.
+On adoption the agent asks whether you want to add durable context manually or have the agent keep it updated automatically, and always asks for annotations (default English) whether to keep English or change to another language, and to which one. The initialization also creates `README.md` and `.gitignore` when missing. To run the copy and adapter steps in one command, use `.ai/adapters/bootstrap.sh`.
 
 ## How it works
 

@@ -6,6 +6,11 @@ Before completion, run all applicable project validations that are available and
 
 ## Recommended checks when the technology exists
 
+### Annotation language
+
+1. Confirm the annotation language was asked and recorded in `.ai/HANDOFF.md` (`Annotation language: ...`).
+2. Verify code comments and relay `.md` files use the confirmed language.
+
 ### Terraform / OpenTofu
 
 1. Run formatting (`terraform fmt -recursive` or `tofu fmt`).

@@ -6,7 +6,12 @@ No project code or configuration exists yet, so no historical naming, Terraform/
 
 ## Recommended conventions
 
-- Use English for technical context when a project has mixed-language documentation; otherwise match the repository's predominant language.
+## Annotation language (code comments and relay `.md` files)
+
+- Default to English for annotations (code comments and relay `.md` files: `AGENTS.md`, `.ai/`, `docs/`, `README.md`, PRD/spec/decision records).
+- Always ask the user before writing or updating them whether to keep English or change to another language, and to which language.
+- Record the answer in `.ai/HANDOFF.md` (`Annotation language: ...`) and apply it consistently for that task/session.
+- Re-ask for each new task or session; do not carry a previous choice forward unless the user declares it a standing preference.
 - Keep files and resource names lowercase and descriptive; use the conventions already established by the adopted project.
 - Prefer small, focused changes and document meaningful architectural choices in `DECISIONS.md`.
 - Do not introduce cloud, IaC, Kubernetes, or CI/CD conventions until those technologies are actually present.

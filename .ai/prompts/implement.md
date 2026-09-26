@@ -1,6 +1,6 @@
 Read AGENTS.md first.
 
-Understand the current project state and relevant context before making changes. Implement only what is required. Preserve existing conventions and architectural decisions. Do not execute destructive commands or deploy infrastructure unless explicitly requested.
+Understand the current project state and relevant context before making changes. Annotations default to English: always confirm first whether to keep English or change to another language, and to which one (code comments and relay `.md` files). Implement only what is required. Preserve existing conventions and architectural decisions. Do not execute destructive commands or deploy infrastructure unless explicitly requested.
 
 Run all applicable validation defined in `.ai/VALIDATION.md`. Update `.ai/TASKS.md` and `.ai/HANDOFF.md` when the change affects ongoing work.
 

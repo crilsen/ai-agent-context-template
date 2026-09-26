@@ -19,6 +19,7 @@ This template is plug-and-play: the agent analyzes the repository automatically 
 13. Ask the user **once** how to keep context updated:
     - **Manual:** report what was filled and the open questions; update context only on request.
     - **Automatic:** keep context current as work happens (`.ai/workflows/capture-learning.md`, `.ai/LIMITS.md`) without asking again.
-14. Report what was filled, what remains unknown, and the next actions; then commit.
+14. Annotations default to English. Always ask whether to keep English or change to another language, and to which one, for code comments and relay `.md` files (`AGENTS.md`, `.ai/`, `docs/`, `README.md`, PRD/spec/decision records). Record the answer in `.ai/HANDOFF.md` (`Annotation language: ...`) and in `.ai/CONVENTIONS.md` when it is declared a standing preference.
+15. Report what was filled, what remains unknown, and the next actions; then commit.
 
 Do not leave the adoption half done. If a fact cannot be determined, keep it explicitly unknown rather than guessing.
